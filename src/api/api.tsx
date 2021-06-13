@@ -1,8 +1,11 @@
 import axios from "axios";
 
 const instance = axios.create({
-    withCredentials: true,
+    withCredentials: false,
     baseURL: "https://api.github.com",
+    headers: {
+        "Accept": "application/vnd.github.v3+json"
+    }, 
 })
 
 export const gitAPI = {
