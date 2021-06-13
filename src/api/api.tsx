@@ -10,8 +10,12 @@ const instance = axios.create({
 
 export const gitAPI = {
 
+    getCommits(searchQuery: string = ''){
+        return instance.get(`/search/commits?q=${searchQuery}&sort=committer-date&per_page=100`)
+    },
+
     getRepos(searchQuery: string = "stars:%3E1") {
-        return instance.get(`/search/repositories?q=${searchQuery}&sort=stars`)
+        return instance.get(`/search/repositories?q=${searchQuery}&sort=stars&per_page=100`)
     },
 }
 

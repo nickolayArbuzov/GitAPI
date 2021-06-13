@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import s from "./Main.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {requestGitTC} from "../../state/reducers/GitReducer";
+import {requestRepoTC} from "../../state/reducers/GitReducer";
 import {appRootStateType} from "../../state/store";
 import {Repo} from "../repo/Repo";
 import {ItemsType} from "../../api/api";
@@ -15,9 +15,9 @@ export const Main = () => {
 
     const dispatch = useDispatch();
     const {items, isFetching} = useSelector<appRootStateType, ItemsSelectorType>(state => state.git)
-
+    
     useEffect(() => {
-        dispatch(requestGitTC())
+        dispatch(requestRepoTC())
     }, [])
 
     return (
