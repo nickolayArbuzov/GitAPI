@@ -14,3 +14,8 @@ export const gitAPI = {
         return instance.get(`/search/repositories?q=${searchQuery}&sort=stars`)
     },
 }
+
+export type ItemsType={
+    items:[]
+    sha:string
+}

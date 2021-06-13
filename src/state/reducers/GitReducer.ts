@@ -22,7 +22,6 @@ export const requestGitTC = () => (dispatch: Dispatch) => {
     return gitAPI.getRepos()
         .then((res) => {
             if (res) {
-                debugger
                 dispatch(requestGitAC(res.data));
             }
         })

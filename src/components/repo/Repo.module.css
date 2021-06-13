@@ -1,4 +1,6 @@
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    border: solid 2px silver;
+    padding: 10px;
 }

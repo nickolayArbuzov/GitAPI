@@ -3,11 +3,18 @@ import s from "./Main.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {requestGitTC} from "../../state/reducers/GitReducer";
 import {appRootStateType} from "../../state/store";
+import {Repo} from "../repo/Repo";
+import {ItemsType} from "../../api/api";
+
+type ItemsSelectorType = {
+    items: ItemsType[]
+    isFetching: Boolean
+}
 
 export const Main = () => {
 
     const dispatch = useDispatch();
-    const repos = useSelector<appRootStateType>(state => state.git.items)
+    const {items, isFetching} = useSelector<appRootStateType, ItemsSelectorType>(state => state.git)
 
     useEffect(() => {
         dispatch(requestGitTC())
@@ -15,7 +22,7 @@ export const Main = () => {
 
     return (
         <div className={s.container}>
-
+            {items ? items.map(i => <Repo key={i.sha} r={i}/>) : null}
         </div>
     )
 };
